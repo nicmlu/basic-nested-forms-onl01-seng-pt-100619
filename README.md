@@ -46,11 +46,12 @@ Previously, we wrote setters like `Song#artist_name=` to find or create an
 
 That won't work here, because an address contains more than one field. In the
 `Artist` case we were just doing the `name`. With `Address`, it's "structured
-data". All that really means is it has multiple fields attached to it. When we
-build a form for it, the form will send a different key for each field in each
-address. This can get a bit unwieldy so we generally try to group a hash within
-the `params` hash, which makes things much neater. Spoiler alert: Rails has a
-way to send this across as a hash.
+data". All that really means is it has multiple fields attached to it. 
+<!-- When we build a form for it, the form will send a different key for each field in each
+address.  -->
+This can get a bit unwieldy so we generally try to group a hash within
+the `params` hash, which makes things much neater. 
+<!-- Spoiler alert: Rails has a way to send this across as a hash. -->
 
 The complete `params` object for creating a `Person` will look like the
 following. Using "0" and "1" as keys can seem a bit odd, but it makes everything
@@ -88,8 +89,9 @@ Notice the `addresses_attributes` key. That key is similar to the `artist_name`
 key we used previously. Last time, we handled this by writing a `artist_name=`
 method. In this case, we're going to do something _super_ similar. Instead of
 writing our own `addresses_attributes=` method, we'll let Rails take care of it
-for us. We're going to use `accepts_nested_attributes_for` and the `fields_for`
-FormHelper.
+for us. 
+<!-- We're going to use `accepts_nested_attributes_for` and the `fields_for`
+FormHelper. -->
 
 Last time, we first wrote our setter method in the model. This time let's modify
 our `Person` model to include an `accepts_nested_attributes_for :addresses`
